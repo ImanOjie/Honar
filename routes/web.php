@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/pass', function () {
-    return Hash::make('123456');
+    return Hash::make('123456789');
 });
