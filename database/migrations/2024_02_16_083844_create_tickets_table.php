@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('user_code');
             $table->string('subject')->nullable();
             $table->string('text')->nullable();
+            $table->string('file')->nullable();
             $table->string('status')->nullable();
             $table->string('department')->nullable();
             $table->timestamps();
