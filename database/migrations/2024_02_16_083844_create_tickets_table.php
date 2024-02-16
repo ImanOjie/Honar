@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique();
-            $table->string('user_code');
+            $table->string('code')->unique()->nullable();
+            $table->string('user_code')->nullable();
             $table->string('subject')->nullable();
             $table->string('text')->nullable();
             $table->string('file')->nullable();
