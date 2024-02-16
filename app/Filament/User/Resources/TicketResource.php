@@ -2,28 +2,36 @@
 
 namespace App\Filament\User\Resources;
 
-use App\Filament\User\Resources\TicketResource\Pages;
-use App\Filament\User\Resources\TicketResource\RelationManagers;
-use App\Models\Ticket;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Ticket;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Radio;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\User\Resources\TicketResource\Pages;
+use App\Filament\User\Resources\TicketResource\RelationManagers;
 
 class TicketResource extends Resource
 {
     protected static ?string $model = Ticket::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-ticket';
+    protected static ?string $modelLabel = 'تیکت';
+    protected static ?string $pluralModelLabel = 'تیکت ها';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
+                Radio::make('دپارتمان')
+                    ->options([
+                        'draft' => 'Draft',
+                        'scheduled' => 'Scheduled',
+                        'published' => 'Published'
+                    ])
             ]);
     }
 
